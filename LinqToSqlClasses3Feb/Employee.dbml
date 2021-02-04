@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WFA3DotNet" Class="EmployeeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-0RKRG5BA\MSSQLSERVER02;Initial Catalog=WFA3DotNet;Integrated Security=True" SettingsObjectName="LinqToSqlClasses3Feb.Properties.Settings" SettingsPropertyName="WFA3DotNetConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.EmployeeTab" Member="EmployeeTabs">
+    <Type Name="EmployeeTab">
+      <Column Name="EmpId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmpName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Salary" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DeptNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_InsertEmployee" Method="sp_InsertEmployee">
+    <Parameter Name="empname" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="esal" Type="System.Double" DbType="Float" />
+    <Parameter Name="deptId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ShowEmpDetails" Method="sp_ShowEmpDetails">
+    <Parameter Name="empid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ShowEmpDetailsResult">
+      <Column Name="EmpName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Salary" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DeptNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DeptName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_UpdateEmp" Method="sp_UpdateEmp">
+    <Parameter Name="empid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="empname" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="esal" Type="System.Double" DbType="Float" />
+    <Parameter Name="deptId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_DeleteEmployee" Method="sp_DeleteEmployee">
+    <Parameter Name="empid" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_WithOutputParameter" Method="sp_WithOutputParameter">
+    <Parameter Name="empcnt" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
